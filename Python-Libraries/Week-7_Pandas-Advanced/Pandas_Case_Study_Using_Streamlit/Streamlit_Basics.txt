@@ -1,0 +1,65 @@
+Que 1: What is Streamlit?
+Ans: Streamlit is a faster way of building and sharing data apps. Streamlit simplifies the process of making a full fledge website using html, css and javascript.
+
+It is a plug and play tool using which a Data scientist or Machine Learning Engineering will deploy their models for visibility.
+
+
+Que 2: Main Benefit of using streamlit.
+Ans: We can make a full-fledge good looking website without knowing web dev concepts.
+
+Que 3:Use case in Data Professional's life.
+Ans: We can convert pandas analysis or machine learning models into a website which can be accessible publicly
+
+Que 4: Technical side of streamlit.
+Ans: Streamlit is build on top of a javascript library called React(frontend library). Streamlit uses react to show frontend and uses python's backend to show backend. So, streamlit connects python and javascript behind the scenes.
+
+Que 5: Flask VS Streamlit.
+Ans: We can convert pandas analysis or machine learning models into a website using flask as well. Flask consists some web- development technicality. But streamlit does not contain web dev technicality that' why it is better. As streamlit uses react so we can see ongoing changes on web page without reloading or rerunning.
+
+There is a disadvantage of streamlit:
+We cannot do a lot of customization in streamlit webapp.
+
+For a company flask is suitable and for an individual streamlit is suitable.
+
+
+**************Text Utility*************
+
+title 
+header
+subheader
+write
+markdown
+code
+Latex
+
+***********Display Elements*************
+
+Dataframes 
+Metrics 
+Json
+
+**********Displaying Media**************
+
+image
+video
+
+*********Creating Layouts*************
+
+sidebars
+columns
+
+********showing status**************
+
+progress bar
+error message -> success
+
+********Taking User Input**********
+
+Text input -> Data input -> number input 
+buttons -> balloons
+Dropdown 
+file uploader
+
+
+
+
