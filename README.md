@@ -1,7 +1,9 @@
-Data-Science-Mentorship-Program-2.0
+# Data-Science-Mentorship-Program-2.0
+
 This repository is dedicated to my solutions of tasks and all learnings delivered by CampusX for the course "DSMP-2.0"
 
-Structure
+## Structure
+
 The Learnings are names in the format : Week-No_ > Topic-Name > SessionNo._Topic_name.ipynb
 
 The tasks are names in the format : Week-No_ > Topic-Name > session_No._tasks.ipynb
@@ -10,7 +12,8 @@ In the solutions while solving the assignments I have also gone a bit deep by ex
 
 All the assignments are completed using Jupyter notebook in a way I understood the concepts feel free to go through them as they cover almost the most vital topics involved during the interviews.
 
-Topics Covered
+## Topics Covered
+
 Below are the topics you'll find in this repository:
 
 🔹 Python
@@ -25,7 +28,8 @@ Below are the topics you'll find in this repository:
 
 🔹 Capstone Project
 
-Description
+## Description
+
 👋 Welcome to the CampusX Assignments Repository!
 
 📚 This repository contains a collection of tasks and learnings related to Python, Data Science, and Machine Learning, curated by the team at CampusX.
@@ -37,6 +41,9 @@ Description
 📈 As you progress through the assignments, you'll build a solid foundation in Python and gain experience in using popular data science libraries such as NumPy, Pandas, and Matplotlib. You'll also explore cutting-edge topics like machine learning and artificial intelligence, learning how to build predictive models and intelligent agents.
 
 🚀 Let's learn and grow together!
+
 I hope you find this repository useful and informative in your journey towards mastering data science.
+
 👨‍💻 Happy coding! 🎉
+
 ❤️ Thank you for visiting my repository, and happy exploring 🤗
