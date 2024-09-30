@@ -11,7 +11,7 @@ CREATE TABLE dt_demo(
 
 INSERT INTO dt_demo VALUES (200,200); # 200 will not store to user_id as it is out of its range limit. But course_id can store it.
 
-INSERT INTO dt_demo VALUES (20,200);
+INSERT INTO dt_demo VALUES (120,200);
 
 SELECT * FROM dt_demo;
 
