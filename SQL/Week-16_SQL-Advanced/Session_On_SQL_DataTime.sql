@@ -6,6 +6,7 @@ CREATE TABLE uber_rides(
     end_time DATETIME
 );
 
+
 INSERT INTO uber_rides VALUES(1,1,'2024-03-09 08:00:00','2024-03-09 09:00:00');
 INSERT INTO uber_rides VALUES(2,3,'2024-03-09 22:00:00','2024-03-10 12:30:00');
 INSERT INTO uber_rides VALUES(3,3,'2024-03-10 15:00:00','2024-03-10 15:30:00');
@@ -59,7 +60,7 @@ FROM uber_rides;
  SELECT * ,DATE_FORMAT(start_time,'%d %b, %y') FROM uber_rides; # date, 3 char of month, 2 digit of year
  
  SELECT * ,DATE_FORMAT(start_time,'%r') FROM uber_rides;
- SELECT * ,DATE_FORMAT(start_time,'%l:%i %p') FROM uber_rides; # 12-hour formatted hour, minute , am/pm
+ SELECT * ,DATE_FORMAT(start_time,'%l:%i %p') FROM uber_rides; # 12-hour formatted :  hour, minute , am/pm
  
  -- NOTE : https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format
  
@@ -72,7 +73,7 @@ SELECT '26-09-2024'>'9 september 2024'; # it is doing string comparision (based 
 
 SELECT MONTHNAME('9 september 2024'); # sql will not considered it as date
 SELECT MONTHNAME(STR_TO_DATE('9 mar 2024','%e %b %Y'));
-SELECT DAYNAME(STR_TO_DATE('9 mar 2024','%e %b %Y'));
+SELECT DAYNAME(STR_TO_DATE('19 mar 2024','%e %b %Y'));
 
 SELECT MONTHNAME(STR_TO_DATE('9-mar hello 2024','%e-%b hello %Y'));
 
@@ -109,6 +110,6 @@ CREATE TABLE posts(
 INSERT INTO posts(user_id,content) VALUES (1,'hello world');
 SELECT * FROM posts;
 
-UPDATE posts SET content=('no more hello world') WHERE post_id=1;
+UPDATE posts SET content=('no hello world') WHERE post_id=1;
    
    
