@@ -1,0 +1,265 @@
+Oue 1: What is GIT?
+Ans: Git is a distributed version control system
+
+Que 2: What is VCS/SCM:
+Ans: Version Control System or Source Control Manager. 
+One of the way of software creation is Minimal viable product in which we built a software with basic features and launch it. Then after getting feedback from customers we improve that software. We developed software in versions.
+We control these version using version control systems. Git is a kind of version control system.
+
+Que 3: Examples of VCS
+Ans: a) Git  b) Apache Subversion c) Mercurial
+
+Que 4: Why git/VCS is needed?
+Ans: Undo and redo is like VCS.
+VCS is important to save the state of our software at multiple timestamps. So that if any time software face any bug or issue than we can retrieve previous version using VCS.
+
+Google drive, Google docs, Google sheets , jupyter notebook these all uses VCS to save the progress at different timestamps. By using restore this version we can replace the current state of file with previous state. We can rolled back to any point of previous timestamp.
+
+Que 5: Types of VCS.
+Ans: 
+a) Centralized : Source code of software reside in center on a single machine. Other machines constantly communicate with that machine for any changes to be made. 
+
+b) Distributed : Source code of software resides on every machines 
+
+Que 6: What are the various advantages of VCS?
+Ans: 
+a) Version control : We can keep record of multiple versions.
+b) Bug Fixing : We can identify the time, origin and cause of bug.
+c) Doing non-linear development : We can work on multiple features of software at a time.
+d) collaborative development: Multiple people can work on a single software collaboratively.
+
+***********************************************************************
+
+How git works? -> terminology
+
+installing git
+
+***********************************************************************
+
+Creating a repo
+
+cloning someone else's repo
+
+status
+
+**********************************************************************
+
+Making Changes
+
+add : git add . command will bring all untracked files to staging index
+
+commit
+
+** When to commit? 
+We should commit at that which we want to get if any mishap happens. Don't commit multiple features at a time.
+
+** commit messages?
+Avoid 'and' word generally. 
+a) short and crisp
+
+b) Explain what
+
+c) rule of thumb no and
+
+d) This commit will...
+
+add.
+
+gitignore
+
+*******************************************************************************************
+
+Seeing commits
+
+log -> This will show all commits history with author name and date.
+
+git log --oneline -> This will show all commits history in one line without author name and date. This command shows SHA for every commit as well.
+
+git log --stat -> This will show all commits history with author name and date. This will tells us about the lines which were added and deleted in how many files.
+
+git log --p -> This will show all commits history with author name and date. This will tells us about the lines which were added and deleted in how many files. This will show the added or deleted code as well.
+
+- P : shows commit history along with code for all commits.
+- show :  shows commit history along with code of one particular commit. 
+(git show SHA number of that commit) git show 512deld
+
+- seeing commits of someone else's repo using git log
+
+- diff(difference) : this will tell which code is added or deleted from the file. But it tells at the that time of code difference when we haven't done commit.
+
+********************************************************************************************************
+
+Creating versions of a software
+
+- tag->X.Y.Z
+
+X- The major version, used for making major and backward-incompatible changes.
+
+Y- The minor version, used for adding functionality while maintaining backwards compatibility.
+
+Z-The patch version, used for making small bug fixes while maintaining backwards compatibility.
+
+** adding tag to a past commit
+
+git tag -a v1.0.0 after running this command. vim editor will get open where we have to write tag message.
+Then escape and write :wq
+Now our last commit will have a tag= v1.0.0
+
+** deleting tag
+
+git tag -d v1.0.0
+
+** Adding tag to previous commit
+
+git tag -a v1.0.0 d698ac (SHA number of that commit)
+after running this command. vim editor will get open where we have to write tag message.
+Then escape and write :wq
+
+****************************************************************************************************
+
+Release: when we put our code on a production server and it become live for everyone 
+
+> working in non-linear Development
+
+a) branching
+b) merging
+
+a) Branching (branching can be done on individual or team scenario)
+Master or main branch will always be their in our git repo. Head is pointing to master branch.
+
+** concept of head pointer
+HEAD is the reference to the most recent commit in the current branch. This means HEAD is just like a pointer that keeps track of the latest commit in your current branch. 
+
+** Creating branches on head
+git branch sidebar (branch name)   # This will create a branch
+git branch    # this will show the no of branches present in a repo (> this symbol indicate the current branch)
+
+** Creating branches on past commits
+git branch error_fix 1790ac9 (that commit SHA number)
+git branch    # this will show the no of branches present in a repo 
+
+** Show all branches -> Active Branch
+git branch    # this will show the no of branches present in a repo (> this symbol indicate the current branch)
+
+** switch between branches->How this works?
+git checkout sidebar (branch name)
+git branch    # this will show the no of branches present in a repo (> this symbol indicate the current branch)
+
+** NOTE
+git checkout error_fix (last second commit branch)
+when we go to this branch which was created on previous commit. Then automatically all latest commit's code will remove from our project file. This means our project file will contains code till last second commit only. 
+If we again checkout to master branch then all code will come back. If we have made branches but new branch does not contains any code than it will be similar to the commit where head is pointing.
+
+** Understanding what will come under a branch(git log)
+
+** Making new commits in all branches(git log)
+
+** see all branches at once-graph-all
+git log --oneline --all           # this will show all the commits across all branches
+git log --oneline --all --graph   # this will show all the commits across all branches in form of graphs
+
+** deleting branches
+git branch -d error-fix    # this command will through an error as we haven't merges the commits made in this branch to tha master branch.
+
+# if we still want to forcefully delete this branch then we have to write
+git branch -D error-fix    # this will delete the branch 
+** NOTE : We cannot delete the branch on which we are currently at. We have to delete branches through working on other branch.
+
+*************************************************************************************************
+
+b) Merging Branches
+
+
+************************************************************************************************
+
+Que 7: What is merging
+Ans: Act of combining multiple branches
+
+Que 8: What happens at merging
+Ans: 
+a) A new commit is created on merging look at the branches that it's going to merge
+
+b) look back along the branch's history to find a single commit that both branches have in their commit history(common commit)
+
+c) combine the lines of code that were changed on the separate branches together
+
+d) makes a commit to record the merge
+
+e) Note-Merging happens at the checked out branch. No new branches are created
+
+
+Que 9: Types of merging
+Ans: 
+a) Fast Forward 
+b) Regular(Divergent branches)
+
+a) Fast Forward -> show log
+In fast forward merging master remain at the common commit place and another branch goes beyond its, then master branch do fast forward merging to reach at the another branch commit. After this merging, all 3 (head, master, another branch) will be remain at the common commit.
+
+b) Regular(Divergent branches)
+In regular merging master has some commits and another branch also has its own commits, then master branch do regular merging to combine both branches code in new commit.
+
+Que 10: Merging Divergent Branches -> show log
+git log --oneline --all --graph
+
+Que 11: Merge Conflict
+Ans: When git cannot decide which code to keep in project file because at a same place 2 branches has written different code. After conflict occur git will show some weird syntax in our project file to indicate the place of conflict.
+
+(<<<<<< HEAD) everything below this line (until the next indicator) is code of current branch
+
+(============) is the end of the original lines, everything that follows (until the next indicator) is what's on the branch that's being merged in
+
+>>>>>>>> heading-update) is the ending indicator of what's on the branch that's being merged in
+
+
+Que 12: Resolving Conflicts
+
+Ans: Developer team will decides which code is needs to be kept.
+After resolving conflict we don't have to do merge commit here. We will perform normal commit to update the changes.
+
+***********************************************************************************************************************
+
+Que 13: Undoing Changes  
+
+-> editing the last commit message
+
+-> forgot to add some files to the last commit
+
+-> rolling back to a specific state using show
+
+-> revert a commit
+
+**************************************************************************************************
+
+Que 14: Working with a remote repo
+
+** Need scenario-> collaboration
+Multiple people can works on single project and any one can see the changes and modification.
+
+GitHub is a central and remote repository(likewise GitLab, bigbucket)
+
+** The flow diagram
+
+** create a new repo on GitHub
+go to GitHub.com and click add and fill details
+
+** add remote(git remote add origin)
+git remote               # this command will not show anything to the screen
+git remote add origin    # this command will add our local repository to remote repository which is named as origin
+git remote               # now this command will show origin as output
+
+** push code(git push)
+git push origin master
+
+** git log -> tracking branch
+master(local): This will track the commit done in local repository(git)
+origin/master: This will track the commit done in remote repository(github)
+If master and origin/master is showing at common commit then it means machine code and GitHub code are matching.
+
+** add a readme file
+manually adding a readme file is better
+
+** pull code
+If other developer had made some changes in the project then we have to first pull the overall code of GitHub as master and origin/master is not at same commit.
+
+git pull origin master   # this code will pull all command from github
