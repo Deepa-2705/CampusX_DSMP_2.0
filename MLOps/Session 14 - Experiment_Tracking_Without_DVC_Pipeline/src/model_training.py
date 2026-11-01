@@ -8,15 +8,15 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 from dvclive import Live
 
-df = pd.read_csv('./MLOps/Session 14 - Experiment_Tracking_Without_DVC_Pipeline/data/student_performance.csv')
+df = pd.read_csv('data/student_performance.csv')
 
 X = df.iloc[:, :-1]
 y = df['Placed']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-n_estimators = 30
-max_depth = 1
+n_estimators = 10
+max_depth = 20
 
 rf = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
 
