@@ -1,0 +1,5 @@
+feature_engineering_n_components: 3
+model_training_n_estimators: 16
+model_training_max_depth: 3
+model_training_bootstrap: false
+model_training_criterion: gini

@@ -1,0 +1,8 @@
+feature_engineering:
+  n_components: 3
+
+model_training:
+  n_estimators: 16
+  max_depth: 3
+  bootstrap: false
+  criterion: gini

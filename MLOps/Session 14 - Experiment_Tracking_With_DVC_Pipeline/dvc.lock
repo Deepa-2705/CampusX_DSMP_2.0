@@ -1,0 +1,94 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/data_ingestion.py
+    deps:
+    - path: src/data_ingestion.py
+      hash: md5
+      md5: bdc15f0304f59ce710b4d4dc51345373
+      size: 471
+    outs:
+    - path: data/raw/test.csv
+      hash: md5
+      md5: 7443713d68c4d3c19499b7eaba1c672d
+      size: 508
+    - path: data/raw/train.csv
+      hash: md5
+      md5: e3979e36262893c4bc47f559364f695e
+      size: 1866
+  feature_engineering:
+    cmd: python src/feature_engineering.py
+    deps:
+    - path: data/raw/test.csv
+      hash: md5
+      md5: 7443713d68c4d3c19499b7eaba1c672d
+      size: 508
+    - path: data/raw/train.csv
+      hash: md5
+      md5: e3979e36262893c4bc47f559364f695e
+      size: 1866
+    - path: src/feature_engineering.py
+      hash: md5
+      md5: 34da02169fd97c065696c86c0b2da0c3
+      size: 1411
+    params:
+      params.yaml:
+        feature_engineering.n_components: 3
+    outs:
+    - path: data/processed/test_processed.csv
+      hash: md5
+      md5: 6ef3f1358a8c4c42d759130e292b4def
+      size: 1257
+    - path: data/processed/train_processed.csv
+      hash: md5
+      md5: 2dad1b8c14639164ffc5a0dc43a47d01
+      size: 4948
+  train_model:
+    cmd: python src/model_training.py
+    deps:
+    - path: data/processed/train_processed.csv
+      hash: md5
+      md5: 2dad1b8c14639164ffc5a0dc43a47d01
+      size: 4948
+    - path: src/model_training.py
+      hash: md5
+      md5: bc44159337af4b1075009835f3065e48
+      size: 941
+    params:
+      params.yaml:
+        model_training.bootstrap: false
+        model_training.criterion: gini
+        model_training.max_depth: 3
+        model_training.n_estimators: 16
+    outs:
+    - path: model.pkl
+      hash: md5
+      md5: 26295f114d82dede440284ddc7028a72
+      size: 20009
+  evaluate_model:
+    cmd: python src/model_evaluation.py
+    deps:
+    - path: data/processed/test_processed.csv
+      hash: md5
+      md5: 6ef3f1358a8c4c42d759130e292b4def
+      size: 1257
+    - path: model.pkl
+      hash: md5
+      md5: 26295f114d82dede440284ddc7028a72
+      size: 20009
+    - path: src/model_evaluation.py
+      hash: md5
+      md5: 308b5458e54628e0e669942020f357c1
+      size: 1398
+    params:
+      params.yaml:
+        feature_engineering.n_components: 3
+        model_training.bootstrap: false
+        model_training.criterion: gini
+        model_training.max_depth: 3
+        model_training.n_estimators: 16
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 57da4550c785997e10502d6e2898ed26
+      size: 99
